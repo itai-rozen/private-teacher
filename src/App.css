@@ -2,9 +2,19 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  transition: .2s;
 }
+
+*:hover { transition: .2s; }
 .App {
   text-align: center;
+}
+
+.page {
+  height: 90vh;
+  margin-top: 10vh;
+  display: flex;
+  align-items: center;
 }
 
 ul > li {
@@ -14,4 +24,7 @@ ul > li {
 a {
   text-decoration: none;
 }
+
+.flex { display: flex; }
+.col { flex-direction: column; }
 
