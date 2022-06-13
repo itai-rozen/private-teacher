@@ -1,20 +1,22 @@
-.home-container {
+.page {
   height: 90vh;
   margin-top: 10vh;
   display: flex;
+  align-items: center;
 }
 .home-container img {
-  width: 100%;
+  width: 90%;
   object-fit: contain;
   box-sizing: border-box;
 }
 .bg-img {
   background: linear-gradient(to left, #fff,#000, #000, #000, #000);
 }
-.home-container > * {
-  width: 50%;
-}
+/* .first-page > * { */
+  /* width: 60%; */
+/* } */
 .home-content {
+  width: 40%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -32,3 +34,15 @@
   text-align: right;
   padding: 15px;
 }
+
+.second-page {
+  background-color: red;
+}
+ .second-page > * {
+   width: 50%;
+ }
+
+ .study-img {
+   width: auto;
+   margin: 0 auto;
+ }
