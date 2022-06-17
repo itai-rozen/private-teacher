@@ -1,11 +1,18 @@
+.page {
+  height: 85vh;
+}
 .page > * { width: 50%;} 
-
+.second-page {
+  margin: 0;
+}
 .page img {
   width: auto;
 }
 
 .btn-container {
-  width: 100vw;
+  width: 100%;
+  height: auto;
+  margin-bottom: 2rem ;
   display: flex;
   justify-content: center;
   align-items: center;
