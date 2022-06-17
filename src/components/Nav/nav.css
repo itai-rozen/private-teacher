@@ -9,5 +9,6 @@
   width: 100vw;
   background-color: white;
   z-index: 1;
-  padding: 5px;
+  padding: 0 5px;
+  margin: 0;
 }
