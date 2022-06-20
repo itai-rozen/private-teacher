@@ -1,13 +1,13 @@
 import { initializeApp } from "firebase/app";
 import { getFirestore, collection, getDocs, addDoc, deleteDoc, doc } from 'firebase/firestore'
-import { getAuth, signInWithEmailAndPassword } from 'firebase/auth'
+import { getAuth, signInWithEmailAndPassword, signOut } from 'firebase/auth'
 const firebaseConfig = {
-  apiKey: "AIzaSyB9YezeGANZ-kIgoPIMHImddQJbqXmrn8g",
-  authDomain: "private-teacher-f6eaa.firebaseapp.com",
-  projectId: "private-teacher-f6eaa",
-  storageBucket: "private-teacher-f6eaa.appspot.com",
-  messagingSenderId: "806552303029",
-  appId: "1:806552303029:web:d944a997537ec3c695d5fc"
+  apiKey: process.env.REACT_APP_API_KEY,
+  authDomain: process.env.REACT_APP_AUTH_DOMAIN,
+  projectId: process.env.REACT_APP_PROJECT_ID,
+  storageBucket: process.env.REACT_APP_STORAGE_BUCKET,
+  messagingSenderId: process.env.REACT_APP_MESSAGING_SENDER_ID,
+  appId: process.env.REACT_APP_APP_ID
 };
 
 const app = initializeApp(firebaseConfig);
@@ -47,7 +47,7 @@ const deleteStudent = async (id:string): Promise<any> => {
 const loginUser = async (password: string):Promise<any> => {
   try {
     const user = await signInWithEmailAndPassword(auth, 
-      'oria.feue@gmail.com',
+      `${process.env.REACT_APP_ADMIN_EMAIL}`,
       password
     )
     return { success: true }
@@ -56,5 +56,13 @@ const loginUser = async (password: string):Promise<any> => {
   }
 }
 
-export { addStudent, getStudents, deleteStudent, loginUser }
+const logOut = async ():Promise<any> => {
+  try {
+    await signOut(auth)
+  } catch(err){
+    console.log((err as Error).message)
+  }
+}
+
+export { addStudent, getStudents, deleteStudent, loginUser, logOut }
 
