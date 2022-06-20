@@ -1,6 +1,6 @@
 import { initializeApp } from "firebase/app";
 import { getFirestore, collection, getDocs, addDoc, deleteDoc, doc } from 'firebase/firestore'
-import { getAuth } from 'firebase/auth'
+import { getAuth, signInWithEmailAndPassword } from 'firebase/auth'
 const firebaseConfig = {
   apiKey: "AIzaSyB9YezeGANZ-kIgoPIMHImddQJbqXmrn8g",
   authDomain: "private-teacher-f6eaa.firebaseapp.com",
@@ -43,7 +43,18 @@ const deleteStudent = async (id:string): Promise<any> => {
     return {error: err}
   }
 }
-// 
 
-export { addStudent, getStudents, deleteStudent }
+const loginUser = async (password: string):Promise<any> => {
+  try {
+    const user = await signInWithEmailAndPassword(auth, 
+      'oria.feue@gmail.com',
+      password
+    )
+    return { success: true }
+  }catch(err){
+    return {error: err}
+  }
+}
+
+export { addStudent, getStudents, deleteStudent, loginUser }
 
