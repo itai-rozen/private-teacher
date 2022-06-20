@@ -9,7 +9,6 @@ interface SecondPageProps {
 
 
 const SecondPage: React.FC<SecondPageProps> = ({ showContact, setShowContact }) => {
-  console.log('re-rendered')
   return <div className="second-page">
     <div className="page">
       <div className="home-content">
